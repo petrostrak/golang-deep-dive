@@ -1,0 +1,26 @@
+logDefer2021/07/02 12:07:08 logDefer.go:41: Hello there!
+logDefer2021/07/02 12:07:08 logDefer.go:42: Another log entry!
+logDefer2021/07/02 12:07:08 logDefer.go:14: --FUNCTION-one--
+logDefer2021/07/02 12:07:08 logDefer.go:18: 0
+logDefer2021/07/02 12:07:08 logDefer.go:18: 1
+logDefer2021/07/02 12:07:08 logDefer.go:18: 2
+logDefer2021/07/02 12:07:08 logDefer.go:18: 3
+logDefer2021/07/02 12:07:08 logDefer.go:18: 4
+logDefer2021/07/02 12:07:08 logDefer.go:18: 5
+logDefer2021/07/02 12:07:08 logDefer.go:18: 6
+logDefer2021/07/02 12:07:08 logDefer.go:18: 7
+logDefer2021/07/02 12:07:08 logDefer.go:18: 8
+logDefer2021/07/02 12:07:08 logDefer.go:18: 9
+logDefer2021/07/02 12:07:08 logDefer.go:20: --FUNCTION-one--
+logDefer2021/07/02 12:07:08 logDefer.go:23: --FUNCTION-two--
+logDefer2021/07/02 12:07:08 logDefer.go:27: 10
+logDefer2021/07/02 12:07:08 logDefer.go:27: 9
+logDefer2021/07/02 12:07:08 logDefer.go:27: 8
+logDefer2021/07/02 12:07:08 logDefer.go:27: 7
+logDefer2021/07/02 12:07:08 logDefer.go:27: 6
+logDefer2021/07/02 12:07:08 logDefer.go:27: 5
+logDefer2021/07/02 12:07:08 logDefer.go:27: 4
+logDefer2021/07/02 12:07:08 logDefer.go:27: 3
+logDefer2021/07/02 12:07:08 logDefer.go:27: 2
+logDefer2021/07/02 12:07:08 logDefer.go:27: 1
+logDefer2021/07/02 12:07:08 logDefer.go:29: --FUNCTION-two--
