@@ -38,4 +38,13 @@ func main() {
 	// s2 is an entire structure object
 	fmt.Println(s2)
 
+	// new keyword allows you to allocate new objects. New returns the memory address of the
+	// allocated object. New returns a pointer
+	ps := new(myStruct)
+	fmt.Println(ps)
+	ps.Name = "petros"
+	ps.Surname = "trak"
+	ps.Height = 173
+	fmt.Println(ps)
+
 }
