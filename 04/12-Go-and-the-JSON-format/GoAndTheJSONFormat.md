@@ -1,0 +1,4 @@
+### Go and the JSON format
+JSON is a very popular text-based format designed to be an easy and light way to pass information between Javascript systems. However JSON is also being used for creating configuration files for applications and storing data in structured format.
+
+The `encoding/json` package offers the `Encode()` and `Decode()` functions which allow the conversion of a Go object into a JSON document and vice versa. Additionally, the `encoding/json` package offers the `Marshal()` and `Unmarshal()` functions, which work similarly to `Encode()` and `Decode()` and are based on the `Encode()` and `Decode()` methods. The main difference between the `Marshal()` and `Unmarshal()` pair and the `Encode()` and `Decode()` pair is that the former pair works on single objects, whereas the latter pair of functions can work on multiple objects as well as streams of bytes.
