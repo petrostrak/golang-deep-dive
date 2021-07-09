@@ -1,0 +1,11 @@
+{
+    "Name":"Petros",
+    "Surname":"Trak",
+    "Age":35,
+    "Tel": [
+        {"Mobile": true, "Number":"123-4566"},
+        {"Mobile": true, "Number":"555-1234"},
+        {"Mobile": false, "Number":"abc-1234"}
+    ],
+    "Occupation": "Software developer"
+}
