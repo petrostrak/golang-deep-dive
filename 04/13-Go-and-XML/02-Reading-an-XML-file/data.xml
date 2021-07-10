@@ -1,0 +1,17 @@
+xmlData: <?xml version="1.0" encoding="UTF-8"?>
+<Record>
+	<Name>Petros</Name>
+	<Surname>Trak</Surname>
+	<Tel>
+		<Mobile>true</Mobile>
+		<Number>123-4566</Number>
+	</Tel>
+	<Tel>
+		<Mobile>true</Mobile>
+		<Number>555-1234</Number>
+	</Tel>
+	<Tel>
+		<Mobile>false</Mobile>
+		<Number>abc-1234</Number>
+	</Tel>
+</Record>
