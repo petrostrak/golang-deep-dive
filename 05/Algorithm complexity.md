@@ -1,0 +1,4 @@
+### Algorithm complexity
+The efficiency of an algorithm is judged by its computational complexity, which mostly has to do with the number of times the algorithm needs to access its input data to do its job. The `big O notation` is used in computer science for describing the complexity of an algorithm. Thus, an `O(n)` algorithm, which needs to access its input only once, is considered better than an `O(n²)` algorithm, which is better that an `O(n³)` algorithm and so on. The worst algorithms, however, are the ones with an `O(n!)` running time, which makes them almost unsusable for inputs with more than 300 elements.
+
+Lastly, most Go lookup operations in build-in types, such as finding the value of a map key or accessing an array element, have a constant time, which is represented by `O(1)`.
