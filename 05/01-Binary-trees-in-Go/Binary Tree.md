@@ -1,0 +1,4 @@
+### Binary Tree
+A binary tree is a data structure where underneath each node there exists at most two other nodes. This means that a node can be connected to one, two, or no other nodes. The `root of a tree` is the first node of the tree. The `depth of a tree`, which is also called the `height of a tree`, is defined as the longest path from the root to a node, whereas the `depth of a node` is the number of edges from the node to the root of the tree. A leaf is a node with no children.
+
+A tree is considered `balanced` when the longest length from the root node to a leaf is at most one more than the shortest such length. An `unbalanced tree` is a tree that is not balanced. Balancing a tree might be a difficult and slow operation, so it is better to keep your tree balanced from the beginning rather that trying to balance it after you have created it, especially when your tree has a large number of nodes.
