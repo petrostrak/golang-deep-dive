@@ -2,3 +2,10 @@
 A linked list is a data structure with a finete set of elements where each element uses at least two memory locations: one for storing the actual data and the other for storing a pointer that links the current element to the next one, thus creating a sequence of elements that construct the linked list.
 
 The first element of a linked list is called the `head`, whereas the last element is often called the `tail`. The first thing that you should do when defining a linked list is to keep the head of the list in a separate variable because the head is the only thing that you have to access the entire linked list. Note that if you lose the pointer to that first node of a singly linked lost, there is no way to find it again.
+
+### Advantages of linked lists
+The greatest advantages of linked lists are that they are easy to understand and implement, and they are generic enough that they can be used in many different situations. This means that they can be used to model many different kinds of data, starting from single values and going up to complex data structures with many fields. Additionally, linked lists are really fast at sequential searching when used with pointers.
+
+Linked lists not only help you to sort your data, but they can also assist you in keeping your data sorted even after inserting or deleting elements. Deleting a node from a sorted linked list is the same as in an ansorted linked list; however, inserting a new node into a sorted linked list is different because the new node has to go to the right place in order for the list to remain sorted. In practice, this means that if you have lots of data and you know that you will need to delete data all the time, using a linked list is better choice than using a hash table or a binary tree.
+
+Lastly, `sorted linked lists` allow you to use various optimization techniques when searching for or inserting a node. The most common technique is keeping a pointer at the center node of the sorted linked list and starting your lookups from there. This simple optimization can reduce the time of the lookup operation by half!

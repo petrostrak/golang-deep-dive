@@ -44,13 +44,15 @@ func deleteNode(t *Node, v int) {
 	if !lookupNode(t, v) {
 		fmt.Printf("Node with value %d does not exist!", v)
 	}
-	current := t
-	for current.Next.Next != nil {
-		current.Value = current.Next.Value
-		current = current.Next
+
+	var prev *Node
+	curr := t.Next
+	for i := 0; i < size(t)-v+1; i++ {
+		prev = curr
+		curr = curr.Next
 	}
-	current.Value = current.Next.Value
-	current.Next = nil
+	prev.Next = curr.Next
+
 }
 
 func traverse(t *Node) {
@@ -111,6 +113,8 @@ func main() {
 	addNode(root, 5)
 	traverse(root)
 	addNode(root, 100)
+	traverse(root)
+	deleteNode(root, 5)
 	traverse(root)
 
 	if lookupNode(root, 100) {
