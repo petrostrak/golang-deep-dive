@@ -2,3 +2,6 @@
 Strictly speaking, a hash table is a data structure that stores one or more key-value pairs and uses a hash function to compute an index into an array of buckets or slots, from which the correct value can be discovered. Ideally, the hash function should assign each key to a unique bucket provided that you have the required number of buckets, which is usually the case.
 
 A good hash function must be able to produce a uniform distribution of the hash values, because it is inefficient to have unused buckets of big differences in the cardinalities of the bucket. Additionally, the hash function should work consistently and output the same hash value for identical keys. Otherwise, it would be impossible to locate the information you want.
+
+### Advantages of hash tables
+If you are thinking that hash tables are not that useful, handly or smart, consider the following: when a hash table has `n` keys and `k` buckets, the search speed for the `n` keys goes from `O(n)` for a linear search down to `O(n/k)`. Although the improvement might look small, for a hash array with only 20 slots, the search time will be reduced by 20 times! This makes hash tables perfect for applications such as dictionaries of any other analogous applications where you have to search large amounts of data.
