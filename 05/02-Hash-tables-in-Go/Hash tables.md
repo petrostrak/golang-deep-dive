@@ -1,0 +1,4 @@
+### Hash tables in Go
+Strictly speaking, a hash table is a data structure that stores one or more key-value pairs and uses a hash function to compute an index into an array of buckets or slots, from which the correct value can be discovered. Ideally, the hash function should assign each key to a unique bucket provided that you have the required number of buckets, which is usually the case.
+
+A good hash function must be able to produce a uniform distribution of the hash values, because it is inefficient to have unused buckets of big differences in the cardinalities of the bucket. Additionally, the hash function should work consistently and output the same hash value for identical keys. Otherwise, it would be impossible to locate the information you want.
