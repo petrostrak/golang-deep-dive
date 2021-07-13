@@ -1,0 +1,2 @@
+### The container package
+The container package supports three data structures: a `heap`, `list` and `ring`. These data structures are implemented in `container/heap`, `container/list` and `container/ring` respectively.
