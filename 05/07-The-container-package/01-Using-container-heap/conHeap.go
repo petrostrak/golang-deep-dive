@@ -1,5 +1,10 @@
 package main
 
+import (
+	"container/heap"
+	"fmt"
+)
+
 type heapFloat32 []float32
 
 // remove and return element Len() - 1
@@ -29,5 +34,16 @@ func (n heapFloat32) Swap(a, b int) {
 }
 
 func main() {
+	myHeap := &heapFloat32{1.2, 2.1, 3.1, -100.1}
+	heap.Init(myHeap)
+	size := len(*myHeap)
+	fmt.Printf("Heap size %d\n", size)
+	fmt.Printf("%v\n", myHeap)
 
+	myHeap.Push(float32(-100.2))
+	myHeap.Push(float32(0.2))
+	fmt.Printf("Heap size: %d\n", len(*myHeap))
+	fmt.Printf("%v\n", myHeap)
+	heap.Init(myHeap)
+	fmt.Printf("%v\n", myHeap)
 }
