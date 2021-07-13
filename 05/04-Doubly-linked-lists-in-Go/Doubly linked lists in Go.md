@@ -1,3 +1,5 @@
 ### Doubly linked lists in Go
 A doubly linked list is one where each node keeps a pointer to the previous element on the list, as well as the next element. Thus, on a doubly linked list, the next link of the first node points to the second node, while its previous link points to `nil` (also called NULL). Analogously, the next link of the last node points to `nil`, while its previous link points to the penultimate node of the doubly linked list.
 
+### Advantages of doubly linked lists
+Doubly linked lists are more versatile that singly linked lists because you can traverse them in any direction you want and also you can insert and delete elements from them more easily. Additionally, even if you lose the pointer to the head of a doubly linked list, you can still find the head node of that list. However, this versatility comes at a price, maintaining two pointers for each node. It is up to the developer to decide whether that extra complexity is justified or not.
