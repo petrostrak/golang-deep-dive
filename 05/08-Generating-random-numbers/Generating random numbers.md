@@ -1,0 +1,2 @@
+### Generating random numbers
+Go uses the `math/rand` package for generating pseudo-random numbers. It needs a `seed` to start producing the numbers. The `seed` is used for initializing the entire process, and it is extremely important because if you always start with the same `seed`, you will always get the same sequence of pseudo-random numbers. This means that everybody can generate that sequence, and that particular sequence will not be random after all.
