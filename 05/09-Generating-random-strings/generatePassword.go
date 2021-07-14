@@ -17,7 +17,7 @@ func main() {
 	MIN := 0
 
 	// As we only want to get printable ASCII characters, we limit the range of pseudo-random numbers
-	// that can be generated. The number of printable characters is the ASCII table is 94. This means
+	// that can be generated. The number of printable characters in the ASCII table is 94. This means
 	// that the range of the pseudo-random numbers that the program can generate should be from 0 to 94,
 	// not including 94.
 	MAX := 94
