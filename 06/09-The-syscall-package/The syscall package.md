@@ -1,0 +1,2 @@
+### The syscall package
+Strictly speacking, a `syscall call` is a programmatic way for an application to request something from the kernel of an operating system. As a consequence, system calls are responsible for accessing and working with most UNIX low-lever elements such as processes, storage devices, printing data, network interfaces and all kinds of files. Put simply, you cannot work on a UNIX system without using system calls. You can inspect the system calls of a UNIX process using utilities such as `strace` and `dtrace`.
