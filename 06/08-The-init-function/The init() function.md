@@ -1,0 +1,3 @@
+### The init() function
+Every Go package can optionally have a private function named `init()` that is automatically executed at the beginning of the execution time.
+The `init()` function is a private function by design, which means that it cannot be called from outside the package in which it is contained. Additionally, as the user of a package has no control over the `init()` function, you should think carefully before using an `init()` function on public packages or changing any global state in `init()`.
