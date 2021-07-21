@@ -42,7 +42,7 @@ func main() {
 		} else if err != nil {
 			fmt.Println("cannot read file")
 		}
-		fmt.Fprintf(&sb, "('%s' ,'mapistest@eurodyn.com', '1', '%s')\n", strings.TrimSuffix(line1, "\n"), strings.TrimSuffix(line2, "\n"))
+		fmt.Fprintf(&sb, "INTO T_CREDITOR_EMAILS(uuid, email, version, fk_creditor) VALUES('%s' ,'mapistest@eurodyn.com', '1', '%s')\n", strings.TrimSuffix(line1, "\n"), strings.TrimSuffix(line2, "\n"))
 	}
 
 	f3, err := os.Create("sqlScript")
@@ -50,5 +50,11 @@ func main() {
 		fmt.Println("could not create file")
 	}
 	defer f3.Close()
-	fmt.Fprintf(f3, sb.String())
+
+	w := bufio.NewWriter(f3)
+	n, err := w.WriteString(sb.String())
+	if err != nil {
+		fmt.Println("could not write to file")
+	}
+	fmt.Printf("wrote %d bytes\n", n)
 }
