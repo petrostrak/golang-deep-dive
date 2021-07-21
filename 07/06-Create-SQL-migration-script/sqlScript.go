@@ -11,7 +11,7 @@ import (
 func main() {
 
 	arguments := os.Args
-	if len(arguments) != 3 {
+	if len(arguments) <= 2 {
 		fmt.Println("The program needs 2 input files")
 		os.Exit(1)
 	}
