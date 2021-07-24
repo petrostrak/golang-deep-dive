@@ -11,3 +11,8 @@ As the name suggests, the `bufio` package is about buffered input and output. Ho
 
 ### Reading text files
 A text file is the most common kind of file that you can find on a UNIX system. In this section, you will be shown how to read text files in three ways: line by line, word by word and character by character.
+
+### Reading a specific amount of data
+This technique is particularly useful when reading binary files, where you have to decode the data you read in a particular way. Nevertheless, this technique still works with text files.
+
+The logic behind this technique is as follows: you create a byte slice with the size you need and use that byte slice for reading. To make this more interesting, this functionality is going to be implemented as a function with two parameters. One parameter will be used to specify the amount of data you want to read, and the other parameter, which will have the `*os.FIle` type, will be used to access the desired files. The return value of that function will be the data you have read.
