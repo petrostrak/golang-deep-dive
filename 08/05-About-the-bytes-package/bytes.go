@@ -22,7 +22,7 @@ func main() {
 	// data into it again
 	buffer.Reset()
 	buffer.Write([]byte("Mastering Go!"))
-	r := bytes.NewReader([]byte(buffer.String()))
+	r := bytes.NewReader([]byte(buffer.Bytes()))
 	fmt.Println(buffer.String())
 	for {
 		b := make([]byte, 3)
