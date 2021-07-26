@@ -9,7 +9,7 @@ func main() {
 
 	arguments := os.Args
 	if len(arguments) == 1 {
-		fmt.Println("usage: permissions filename\n")
+		fmt.Printf("usage: permissions filename\n")
 		return
 	}
 
