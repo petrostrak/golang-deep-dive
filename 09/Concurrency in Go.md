@@ -21,3 +21,9 @@ In a valid concurrent design, adding concurrent entities makes the whole system 
 
 ### Goroutines
 You can define, create and execute a new goroutine using the `go` keyword followed by a function name of the full definition of an `anonymous function`. The `go` keyword makes the function call return immediately, while the function starts running in the background as a goroutine and the rest of the program continues its execution.
+
+### Channels
+A channel is acommunication mechanism that allows goroutines to exchange data among other things.
+However, there are some specific rules. Firstly, each channel allows the exchange of a particular data type, which is also called the `element type` of the channel, and secondly, for a channel to operate properly, you will need someone to receive what is sent via the channel. You should declare a new channel using the `chan` keyword and you can close a channel using the `close()` function.
+
+Finally, a very important detail: when you are using a channel as a function parameter, you can specify its direction; whetherit is going to be used for sending or receiveing. If you know the purpose of a channel in advance, you should use this capability because it will make your programs more robust, as well faster. You will not be able to send data accidentlly to a channel from wich you should only receive data.
