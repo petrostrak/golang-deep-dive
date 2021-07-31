@@ -27,3 +27,8 @@ A channel is acommunication mechanism that allows goroutines to exchange data am
 However, there are some specific rules. Firstly, each channel allows the exchange of a particular data type, which is also called the `element type` of the channel, and secondly, for a channel to operate properly, you will need someone to receive what is sent via the channel. You should declare a new channel using the `chan` keyword and you can close a channel using the `close()` function.
 
 Finally, a very important detail: when you are using a channel as a function parameter, you can specify its direction; whetherit is going to be used for sending or receiveing. If you know the purpose of a channel in advance, you should use this capability because it will make your programs more robust, as well faster. You will not be able to send data accidentlly to a channel from wich you should only receive data.
+
+### Pipelines
+A `pipeline` is a virtual method for connecting goroutines and channels so that the output of one goroutine becomes the input of another goroutine using channels to transfer your data.
+
+One of the benefits that you get from using pipelines is that there is a constant data flow in your program, as no goroutine and channel have to wait for everything to be completed in order to start their execution. Additionally, you see fewer variables and therefore less memory space because you do not have to save everything as a variable. Finally, the use of pipelines simplifies the design of the program and improves its maintainability.
