@@ -6,3 +6,19 @@ A `mutex` variable, which is an abbreviation of `mutual exclusion` variable, is 
 A `critical section` of a concurrent program is the code that cannot be executed simultaneously by all processes, threads or in this case, goroutines. It is the code that need to be protected by mutexes. Therefore, identifying the critical sections of your code will make the whole programming process so much simpler that you should pay particular attention to this task.
 
 A critical section cannot be embedded into another critical section when both critical sections use the same `sync.Mutex` or `sync.RWMutex` variable. Put simply, avoid at almost any cost spreading mutexes across functions because that makes it really hard to see whether you are embedded or not.
+
+### The synx.RWMutex
+The `sync.RWMutex` type is another kind of mutex - actually, it is an improved version of `sync.Mutex` which is defined in the `sync` directory as follows:
+```
+type RWMutex struct {
+	w           Mutex  // held if there are pending writers
+	writerSem   uint32 // semaphore for writers to wait for completing readers
+	readerSem   uint32 // semaphore for readers to wait for completing writers
+	readerCount int32  // number of pending readers
+	readerWait  int32  // number of departing readers
+}
+```
+
+In other words, `sync.RWMutex` is based on `syncMutex` with the necessary additions and improvements. Now lets talk about how `sync.RWMutex` improves `sync.Mutex`. Although only one function is allowed to perform write operations using `sync.RWMutex` mutex, you can have multiple readers owning a `sync.RWMutex` mutex. However, there is one thing that you should be aware of: until all of the readers of a `sync.RWMutex` mutex unlock that mutex, you cannot lock it for writing, which is the small price you have to pay for allowing multiple readers.
+
+The functions that can help you work with a `sync.RWMutex` mutex are `RLock()` and `RUnlock()`, which are used for locking and unlocking the mutex for reading purposes, respectively. The `Lock()` and `Unlock()` functions used in a `sync.Mutex` mutex should still be used when you want to lock and unlock a `sync.Mutex` mutex for writing purposes. Hence, an `RLock()` function call that locks for reading purposes should be paired with an `RUnlock()` function call. Finally, it should be apparent that you should not make changes to any shared variables inside an `RLock()` and `RUnlock()` block of code.
