@@ -22,3 +22,8 @@ type RWMutex struct {
 In other words, `sync.RWMutex` is based on `syncMutex` with the necessary additions and improvements. Now lets talk about how `sync.RWMutex` improves `sync.Mutex`. Although only one function is allowed to perform write operations using `sync.RWMutex` mutex, you can have multiple readers owning a `sync.RWMutex` mutex. However, there is one thing that you should be aware of: until all of the readers of a `sync.RWMutex` mutex unlock that mutex, you cannot lock it for writing, which is the small price you have to pay for allowing multiple readers.
 
 The functions that can help you work with a `sync.RWMutex` mutex are `RLock()` and `RUnlock()`, which are used for locking and unlocking the mutex for reading purposes, respectively. The `Lock()` and `Unlock()` functions used in a `sync.Mutex` mutex should still be used when you want to lock and unlock a `sync.Mutex` mutex for writing purposes. Hence, an `RLock()` function call that locks for reading purposes should be paired with an `RUnlock()` function call. Finally, it should be apparent that you should not make changes to any shared variables inside an `RLock()` and `RUnlock()` block of code.
+
+### The atomic package
+An `atomic operation` is an operation that is completed in a single step relative to other threads or in this case to other goroutines. This means that an atomic operation cannot be interrupted in the middle of it.
+
+The Go standard library offers the `atomic` package which in some cases can help you to avoid using mutex. However mutexes are more versitile that atomic operations. Using the `atomic` package, you can habe atomic counters accessed by multiple goroutines without synchronization issues and race conditions.
