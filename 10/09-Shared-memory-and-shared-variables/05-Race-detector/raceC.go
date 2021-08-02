@@ -22,6 +22,7 @@ func main() {
 	}
 
 	var waitGroup sync.WaitGroup
+	// var m sync.Mutex
 	var i int
 
 	k := make(map[int]int)
@@ -29,10 +30,12 @@ func main() {
 
 	for i = 0; i < numGR; i++ {
 		waitGroup.Add(1)
-		go func() {
+		go func() { //	i int
 			defer waitGroup.Done()
+			// m.Lock()
 			k[i] = i
-		}()
+			// m.Unlock()
+		}() //	i
 	}
 
 	k[2] = 10
