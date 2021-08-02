@@ -27,3 +27,6 @@ The functions that can help you work with a `sync.RWMutex` mutex are `RLock()` a
 An `atomic operation` is an operation that is completed in a single step relative to other threads or in this case to other goroutines. This means that an atomic operation cannot be interrupted in the middle of it.
 
 The Go standard library offers the `atomic` package which in some cases can help you to avoid using mutex. However mutexes are more versitile that atomic operations. Using the `atomic` package, you can habe atomic counters accessed by multiple goroutines without synchronization issues and race conditions.
+
+### Sharing memory using goroutines
+Sharing memory using goroutines is a topic that describes how you can share data using a dedicated goroutine. Although shared memory is the traditional way that threads communicate with each other, Go comes with built-in synchronization features that allow a single goroutine to own a shared piece of data. This means that other goroutines must send messages to this single goroutine that owns the shared data, which prevents the corruption of the data. Such a goroutine is called a `monitor goroutine`. In Go terminology, this is `sharing by communication instead of communication by sharing`.
