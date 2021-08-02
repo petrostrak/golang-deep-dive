@@ -30,3 +30,8 @@ The Go standard library offers the `atomic` package which in some cases can help
 
 ### Sharing memory using goroutines
 Sharing memory using goroutines is a topic that describes how you can share data using a dedicated goroutine. Although shared memory is the traditional way that threads communicate with each other, Go comes with built-in synchronization features that allow a single goroutine to own a shared piece of data. This means that other goroutines must send messages to this single goroutine that owns the shared data, which prevents the corruption of the data. Such a goroutine is called a `monitor goroutine`. In Go terminology, this is `sharing by communication instead of communication by sharing`.
+
+### Catching race conditions
+A `data race condition` is a situation where two or more running elements, such as threads and goroutines, try to take control of or modify a shared resource or a variable of a program. Strictly speaking, a data race occurs when two or more instructions access the same memory address, where at least one of them performs a write operation. If all operations are read operations, then there is no race condition.
+
+Using the `-race` flag when running or building a Go source file will turn on the Go `race detector`, which will make the compiler create a modified version of typical executable file. This modified version can record all access to shared variables as well as all synchronization events that take place, including calls to `sync.Mutex` and `sync.WaitGroup`. After analyzing the relevant events, the race detector prints a report that can help you to identify potential problems so that you can correct them.
