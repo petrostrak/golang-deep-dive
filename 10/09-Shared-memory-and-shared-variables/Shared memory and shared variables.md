@@ -35,3 +35,12 @@ Sharing memory using goroutines is a topic that describes how you can share data
 A `data race condition` is a situation where two or more running elements, such as threads and goroutines, try to take control of or modify a shared resource or a variable of a program. Strictly speaking, a data race occurs when two or more instructions access the same memory address, where at least one of them performs a write operation. If all operations are read operations, then there is no race condition.
 
 Using the `-race` flag when running or building a Go source file will turn on the Go `race detector`, which will make the compiler create a modified version of typical executable file. This modified version can record all access to shared variables as well as all synchronization events that take place, including calls to `sync.Mutex` and `sync.WaitGroup`. After analyzing the relevant events, the race detector prints a report that can help you to identify potential problems so that you can correct them.
+
+### The context package
+The main purpose of the `context` package is to define the `Context` type and support `cancellation`. There are times when for some reason you want to abandon what you are doing. However, it would be very helpful to be able to include some extra information about your cancellation decisions. The `context` package allows you to do exactly that.
+
+If you look at the source code of the `context` package, you will realize that its implementationis pretty simple - even the implementation of the `Context` type is pretty simple, yet the `context` package is very important.
+
+The `Context` type is an interface with four methods named `Deadline()`, `Done()`, `Err()` and `Value()`. The good news is that you do not need to implement all of those functions of the `Context` interface - you just need to modify a `Context` variable using functions such as `context.WithCancel()`, `context.WithDeadline()` and `context.WithTimeout()`.
+
+All three of these functions return a derived `Context` (the child) and a `CancelFunc` function. Calling the `CancelFunc` function removes the parent's reference to the child and stops any associated timers. This means that the Go garbage collector is free to garbage collect the child goroutines that no longer have associated parent goroutines. For garbage collection to work correctly, the parent goroutine needs to keep a reference to each child goroutine. If a child goroutine ends without the parent knowing it, then a memory leak occurs until the parent is canceled as well.
