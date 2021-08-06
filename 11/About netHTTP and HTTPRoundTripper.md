@@ -528,3 +528,12 @@ When a TCP connection is established between two machines, a full duplex virtual
 `IP` stands for `Internet Protocol`. The main characteristic of IP is that it is not a reliable protocol by nature. IP encapsulates the data that travels over the TCP/IP network because it is responsible for delivering packets from the source host to the destination host according to the IP address. IP has to find an addressing method to send a packet to its destination effectively. Although there are dedicated devices, called routers, that perform IP routing, every TCP/IP device has to perform some basic routing.
 
 The `UDP (User Datagram Protocol)` protocol is based on IP, which means that it is also unreliable. Generally speaking, the UDP protocol is simpler that the TCP protocol, mainly because UDP is not reliable by design. As a result, UDP messages can be lost, duplicated or arrive out of order. Furthermore, packets can arrive faster than the recipient can process them. So, UDP is used when speed is more important than reliability.
+
+### About IPv4 and IPv6
+The first version of the `IP protocol` is now called `IPv4` in order to differentiate it from the
+latest version of the IP protocol, which is called `IPv6`. 
+The main problem with IPv4 is that it is about to run out of IP addresses, which is the main reason for creating the IPv6 protocol. This happened because an IPv4 address is represented using 32 bits only which allows a total number of 232 (4,294,967,296) different IP addresses. On the other hand, IPv6 uses 128 bits to define each one of its addresses. 
+The format of an IPv4 address is 10.20.32.245 (four parts separated by dots), while the format of an IPv6 address is 3fce:1706:4523:3:150:f8ff:fe21:56cf (eight parts separated by colons).
+
+### Reading the configuration of network interfaces
+There are four core elements in a network configuration: the IP address of the interface, the network mask of the interface, the DNS servers of the machine, and the default gateway or default router of the machine. However, there is a problem here: you cannot find every piece of information using native, portable Go code. This means that there is no portable way to discover the DNS configuration and the default gateway information of a UNIX machine.
