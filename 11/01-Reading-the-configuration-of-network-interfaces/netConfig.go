@@ -20,6 +20,9 @@ func main() {
 			fmt.Println(err)
 		}
 		addresss, err := byName.Addrs()
+		if err != nil {
+			fmt.Println(err)
+		}
 		for k, v := range addresss {
 			fmt.Printf("Interface address #%v: %v\n", k, v.String())
 		}
