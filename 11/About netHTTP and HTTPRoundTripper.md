@@ -540,3 +540,6 @@ There are four core elements in a network configuration: the IP address of the i
 
 ### Performing DNS lookups
 DNS stands for `Domain Name System`, which relates to the way an IP address is translated into a name, such as `google.com` , and vice versa. The logic behind the DNS.go utility, which will be developed in this section, is pretty simple: if the given command-line argument is a valid IP address, the program will process it as an IP address; otherwise, it will assume that it is dealing with a hostname that needs to be translated into one or more IP addresses.
+
+### Getting the MX records of a domain
+Another very popular DNS request has to do with getting the MX records of a domain. The MX records specify the mail servers of a domain.
