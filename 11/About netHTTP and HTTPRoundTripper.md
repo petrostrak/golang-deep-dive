@@ -537,3 +537,6 @@ The format of an IPv4 address is 10.20.32.245 (four parts separated by dots), wh
 
 ### Reading the configuration of network interfaces
 There are four core elements in a network configuration: the IP address of the interface, the network mask of the interface, the DNS servers of the machine, and the default gateway or default router of the machine. However, there is a problem here: you cannot find every piece of information using native, portable Go code. This means that there is no portable way to discover the DNS configuration and the default gateway information of a UNIX machine.
+
+### Performing DNS lookups
+DNS stands for `Domain Name System`, which relates to the way an IP address is translated into a name, such as `google.com` , and vice versa. The logic behind the DNS.go utility, which will be developed in this section, is pretty simple: if the given command-line argument is a valid IP address, the program will process it as an IP address; otherwise, it will assume that it is dealing with a hostname that needs to be translated into one or more IP addresses.

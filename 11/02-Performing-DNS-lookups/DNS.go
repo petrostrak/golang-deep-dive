@@ -22,6 +22,8 @@ func lookHostname(hostname string) ([]string, error) {
 	return IPs, nil
 }
 
+// go run DNS.go 127.0.0.1
+// go run DNS.go 192.168.1.1
 func main() {
 
 	arguments := os.Args
