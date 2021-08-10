@@ -30,11 +30,12 @@ func main() {
 		PORT = ":" + arguments[1]
 	}
 
-	http.HandleFunc("/CheckStatusOK", CheckStatusOK)
-	http.HandleFunc("/StatusNotFound", StatusNotFound)
-	http.HandleFunc("/", MyHandler)
+	r := http.NewServeMux()
+	r.HandleFunc("/CheckStatusOK", CheckStatusOK)
+	r.HandleFunc("/StatusNotFound", StatusNotFound)
+	r.HandleFunc("/", MyHandler)
 
-	if err := http.ListenAndServe(PORT, nil); err != nil {
+	if err := http.ListenAndServe(PORT, r); err != nil {
 		fmt.Println(err)
 		return
 	}
