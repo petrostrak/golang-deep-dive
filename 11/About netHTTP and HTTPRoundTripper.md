@@ -543,3 +543,27 @@ DNS stands for `Domain Name System`, which relates to the way an IP address is t
 
 ### Getting the MX records of a domain
 Another very popular DNS request has to do with getting the MX records of a domain. The MX records specify the mail servers of a domain.
+
+### gRPC and Go
+Strictly speaking, `gRPC` is a protocol built on HTTP/2 that allows you to create services easily. gRPC can use protocol buffers to specify an `interface definition language`, as well ass to specify the format of the interchanged messages. gRPC clients and servers can be written in any programming language without the need to have clients written the same programming language as their servers.
+
+#### Defining the interface definition file
+`Protocol Buffers (protobuf)` is a method for serializing structured data. As protobuf uses the binary format, it takes up less space than plain text serialization as JSON and XML. However it needs to be encoded and decoded in order to be machine-usable and human-readable, respectively.
+
+#### Installing protoc on ubuntu based distribution
+Prerequesites
+`sudo apt-get install autoconf automake libtool curl make g++ unzip`
+
+Installation
+1. From [this page](https://github.com/protocolbuffers/protobuf/releases), download the `protobuf-all-[VERSION].tar.gz`.
+2. Extract the contents and change in the directory
+3. `./configure`
+4. `make`
+5. `make check`
+6. `sudo make install`
+7. `sudo ldconfig # refresh shared library cache.`
+
+Check if it works by typing `protoc --version`.
+
+`go get -u github.com/golang/protobuf/protoc-gen-go`
+`export PATH=$PATH:~/go/bin`
