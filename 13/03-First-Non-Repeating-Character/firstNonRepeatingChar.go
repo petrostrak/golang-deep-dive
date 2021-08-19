@@ -2,15 +2,60 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
 func main() {
 
-	str := "aaabbbcccdddeeefjjj"
+	str := "aaabbbcccdddeffjjj"
 
 	firstNonRepeatingChar(str)
+	firstNonRepeatingCharButBetter(str)
 
+}
+
+// O(2n) Complexity
+func firstNonRepeatingCharButBetter(s string) byte {
+
+	// key is the character of the string
+	// value is the total numbers of repetition.
+	//
+	// The idea behind this algorithm is to pass all the
+	// characters into a map and increment the values of
+	// them in every occurance.
+	strMap := make(map[byte]int)
+
+	for i := 0; i < len(s); i++ {
+
+		// for shake of simplicity we are declaring the character of the index
+		// into a variable c.
+		c := byte(s[i])
+
+		// first we check if the character of the index is already in the map
+		if strMap[c] != 0 {
+
+			// if it is already in the map, we increment the value of that particular index key
+			strMap[c]++
+		} else {
+
+			// else we initialize the value to 1.
+			strMap[c] = 1
+		}
+	}
+
+	// since maps are unordered data structures, we need a second loop
+	// to get the 1st single occurance.
+	for i := 0; i < len(s); i++ {
+		c := byte(s[i])
+		if strMap[c] == 1 {
+			fmt.Fprintln(os.Stdout, string(c))
+			return c
+		}
+	}
+
+	fmt.Fprintln(os.Stdout, "_")
+	return '_'
 }
 
 // O(n^2) Complexity
