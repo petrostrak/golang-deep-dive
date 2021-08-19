@@ -15,13 +15,39 @@ import (
 // than the length of the array.
 func main() {
 
-	arr := []int{1, 2, 1, 4, 2, 3}
+	arr := []int{3, 4, 3, 2, 1, 4, 2, 3}
 
 	fmt.Println(firstDup(arr))
+	fmt.Println(firstDuplicateButBetter(arr))
 
 }
 
-// O(n^2) Complexity
+// O(n) Complexity - linear
+func firstDuplicateButBetter(arr []int) int {
+
+	// we make a map which in go is a reference to a hash.
+	seen := make(map[int]bool)
+
+	// we loop through each index of the given array
+	for i := 0; i < len(arr); i++ {
+
+		// and check if i exists in the map.
+		if seen[arr[i]] {
+
+			// if it does, return it
+			return arr[i]
+		} else {
+
+			// if not, add it
+			seen[arr[i]] = true
+		}
+	}
+
+	// if no duplicates are found, return -1
+	return -1
+}
+
+// O(n^2) Complexity - squared
 func firstDup(arr []int) int {
 	MIN_SECOND_INDEX := len(arr)
 
