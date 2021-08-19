@@ -31,7 +31,7 @@ func firstDuplicateButBetter(arr []int) int {
 	// we loop through each index of the given array
 	for i := 0; i < len(arr); i++ {
 
-		// and check if i exists in the map.
+		// and check if arr[i] exists in the map.
 		if seen[arr[i]] {
 
 			// if it does, return it
@@ -49,6 +49,8 @@ func firstDuplicateButBetter(arr []int) int {
 
 // O(n^2) Complexity - squared
 func firstDup(arr []int) int {
+	
+	// worst case scenario would be the total length of the given array.
 	MIN_SECOND_INDEX := len(arr)
 
 	// i would be the first pointer that traverses the array.
