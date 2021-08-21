@@ -48,8 +48,8 @@ input[6] = 3
 input[i] = 8
 index = 8-1 = 7
 input[7] = -3
--3<0 false
-append it
+-3<0 true
+append index + 1
 
 .
 .
