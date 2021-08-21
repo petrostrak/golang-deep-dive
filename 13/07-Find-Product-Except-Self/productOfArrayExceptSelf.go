@@ -22,7 +22,32 @@ func main() {
 
 	arr := []int{1, 2, 3, 4}
 	fmt.Println(productOfArrayExceptSelf(arr))
+	fmt.Println(productOfArrayExceptSelfButBetter(arr))
 
+}
+
+// O(2n) Complexity
+// Plus no unnecessary arrays
+func productOfArrayExceptSelfButBetter(arr []int) []int {
+	result := make([]int, len(arr))
+
+	result[0] = 1
+
+	// we are using the output array to store all the left products
+	// as before
+	for i := 1; i < len(arr); i++ {
+		result[i] = arr[i-1] * result[i-1]
+	}
+
+	// and for the right producs we use the variable R and do the multipication
+	// on the fly
+	R := 1
+	for i := len(arr) - 1; i >= 0; i-- {
+		result[i] = result[i] * R
+		R = R * arr[i]
+	}
+
+	return result
 }
 
 // O(3n) Complexity
