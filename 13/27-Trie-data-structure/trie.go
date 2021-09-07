@@ -36,9 +36,36 @@ func (t *Trie) Insert(w string) {
 	currentNode.isEnd = true
 }
 
-// Search
+// Search will take in a word and RETURN true if that word is included in the Trie
+func (t *Trie) Search(w string) bool {
+	wordLength := len(w)
+	currentNode := t.root
+	for i := 0; i < wordLength; i++ {
+		charIndex := w[i] - 'a'
+		if currentNode.children[charIndex] == nil {
+			return false
+		}
+		currentNode = currentNode.children[charIndex]
+	}
+
+	return currentNode.isEnd
+}
 
 func main() {
-	testTrie := initTrie()
-	fmt.Println(testTrie.root)
+	mytTrie := initTrie()
+	toAdd := []string{
+		"aragorn",
+		"aragon",
+		"argon",
+		"eragon",
+		"oregon",
+		"oregano",
+		"oreo",
+	}
+
+	for _, v := range toAdd {
+		mytTrie.Insert(v)
+	}
+
+	fmt.Println(mytTrie.Search("argon"))
 }
