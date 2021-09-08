@@ -40,9 +40,14 @@ func (h *HashTable) Delete(key string) {
 
 // Insert will take in a key, create a node with the key and insert the node in the bucket
 func (b *bucket) insert(k string) {
-	newNode := &bucketNode{key: k}
-	newNode.next = b.head
-	b.head = newNode
+	if !b.search(k) {
+		newNode := &bucketNode{key: k}
+		newNode.next = b.head
+		b.head = newNode
+	} else {
+		fmt.Println(k, "already exists!")
+	}
+
 }
 
 // Search will take in a key and return true if the bucket has a match
