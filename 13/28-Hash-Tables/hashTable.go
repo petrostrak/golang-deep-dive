@@ -29,13 +29,14 @@ func (h *HashTable) Insert(key string) {
 
 // Search will take in a key and return true if that key is stored in the hash table
 func (h *HashTable) Search(key string) bool {
-	// index := hash(key)
-	return false
+	index := hash(key)
+	return h.array[index].search(key)
 }
 
 // Delete will take in a key and delete it from the hash table
 func (h *HashTable) Delete(key string) {
-	// index := hash(key)
+	index := hash(key)
+	h.array[index].delete(key)
 }
 
 // Insert will take in a key, create a node with the key and insert the node in the bucket
@@ -104,14 +105,21 @@ func Init() *HashTable {
 // Constant Complexity with separate chaining
 func main() {
 
-	// testHastTable := Init()
-	// fmt.Println(testHastTable)
-	// fmt.Println(hash("RANDY"))
+	hastTable := Init()
+	list := []string{
+		"ERIC",
+		"KENNY",
+		"KYLE",
+		"STAN",
+		"RANDY",
+		"BUTTERS",
+		"TOKEN",
+	}
 
-	testBucket := &bucket{}
-	testBucket.insert("RANDY")
-	testBucket.delete("RANDY")
+	for _, v := range list {
+		hastTable.Insert(v)
+	}
 
-	fmt.Println(testBucket.search("RANDY"))
+	hastTable.Delete("STAN")
 
 }
