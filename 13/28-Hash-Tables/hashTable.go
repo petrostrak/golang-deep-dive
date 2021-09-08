@@ -45,7 +45,18 @@ func (b *bucket) insert(k string) {
 	b.head = newNode
 }
 
-// Search
+// Search will take in a key and return true if the bucket has a match
+func (b *bucket) search(k string) bool {
+	currentNode := b.head
+	for currentNode != nil {
+		if currentNode.key == k {
+			return true
+		}
+		currentNode = currentNode.next
+	}
+	return false
+}
+
 // Delete
 
 // hash function
