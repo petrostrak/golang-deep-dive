@@ -62,7 +62,23 @@ func (b *bucket) search(k string) bool {
 	return false
 }
 
-// Delete
+// Delete will take in a key and delete the node from the bucket
+func (b *bucket) delete(k string) {
+
+	if b.head.key == k {
+		b.head = b.head.next
+		return
+	}
+
+	previousNode := b.head
+	for previousNode.next != nil {
+		if previousNode.next.key == k {
+			// delete
+			previousNode.next = previousNode.next.next
+		}
+		previousNode = previousNode.next
+	}
+}
 
 // hash function
 func hash(key string) int {
@@ -88,10 +104,14 @@ func Init() *HashTable {
 // Constant Complexity with separate chaining
 func main() {
 
-	testHastTable := Init()
-	fmt.Println(testHastTable)
+	// testHastTable := Init()
+	// fmt.Println(testHastTable)
+	// fmt.Println(hash("RANDY"))
 
-	s := "RANDY"
-	fmt.Println(hash(s))
+	testBucket := &bucket{}
+	testBucket.insert("RANDY")
+	testBucket.delete("RANDY")
+
+	fmt.Println(testBucket.search("RANDY"))
 
 }
