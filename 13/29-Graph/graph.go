@@ -23,6 +23,35 @@ func (g *Graph) AddVertex(k int) {
 	}
 }
 
+// AddEdge adds an edge to the graph
+func (g *Graph) AddEdge(from, to int) {
+	// get vertex
+	fromVertex := g.getVertex(from)
+	toVertex := g.getVertex(to)
+
+	// check errors
+	if fromVertex == nil || toVertex == nil {
+		err := fmt.Errorf("invalid edge (%v --> %v)", from, to)
+		fmt.Println(err.Error())
+	} else if contains(fromVertex.adjacent, to) {
+		err := fmt.Errorf("existing edge (%v --> %v)", from, to)
+		fmt.Println(err.Error())
+	} else {
+		// add edge
+		fromVertex.adjacent = append(fromVertex.adjacent, toVertex)
+	}
+}
+
+// getVertex returns a pointer to the Vertex with a key integer
+func (g *Graph) getVertex(k int) *Vertex {
+	for i, v := range g.vertices {
+		if v.key == k {
+			return g.vertices[i]
+		}
+	}
+	return nil
+}
+
 // Print will print the adjacent list for each vertex of the graph
 func (g *Graph) Print() {
 	for _, v := range g.vertices {
@@ -53,6 +82,16 @@ func main() {
 		test.AddVertex(i)
 	}
 
+	test.AddEdge(1, 2)
+
+	// this will give an error cause we don't have index[5]
+	test.AddEdge(6, 2)
+
+	// this will give an error cause edhe 1,2 already exists
+	test.AddEdge(1, 2)
+	test.AddEdge(2, 1)
+	test.AddEdge(3, 4)
+	test.AddEdge(4, 1)
 	test.Print()
 
 }
