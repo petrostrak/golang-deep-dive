@@ -16,6 +16,10 @@ func printDiskUsage(nfiles, nbytes int64) {
 
 // walkDir recursively walks the file tree rooted at dir
 // and sends the size of each found file on fileSizes.
+//
+// go run dirSize.go /home
+// Total time taken:  3.619959573s
+// 516748 files  57.3 GB
 func walkDir(dir string, n *sync.WaitGroup, fileSizes chan<- int64) (numFiles int64, size int64) {
 	time.Sleep(100 * time.Millisecond)
 	defer n.Done()
